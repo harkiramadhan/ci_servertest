@@ -56,7 +56,7 @@ class ItemController extends CI_Controller {
             'title'        => $this->input->post('title'),
             'description'  => $this->input->post('description')
         );
-      // $this->db->insert('items', $data);
+      $this->db->insert('items', $data);
       echo $data;  
    }
 }

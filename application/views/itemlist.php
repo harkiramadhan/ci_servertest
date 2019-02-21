@@ -37,8 +37,10 @@
 
   <thead>
       <tr>
-          <th>Title</th>
-          <th>Description</th>
+          <th>Dari</th>
+          <th>Agenda</th>
+          <th>Do Date</th>
+          <th>Disposisi</th>
       </tr>
   </thead>
 
@@ -50,7 +52,6 @@
           <td><?php echo $item->agenda; ?></td>
           <td><?php echo $item->dodate; ?></td>
           <td><?php echo $item->disposisi; ?></td>
-          <td><?php echo $item->agenda; ?></td>
       </tr>
    <?php } ?>
   </tbody>
