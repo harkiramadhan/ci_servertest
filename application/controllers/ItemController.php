@@ -37,11 +37,26 @@ class ItemController extends CI_Controller {
    */
    public function ajaxRequestPost()
    {
+      // $perihal    = $this->input->post('perihal');
+      // $agenda     = $this->input->post('agenda');
+      // $email      = $this->input->post('email');
+      // $no         = $this->input->post('nomor_surat');
+      // $dodate     = $this->input->post('dodate');
+      // $dari       = $this->input->post('dari');
+      // $disposisi  = $this->input->post('disposisi');
+
       $data = array(
+            'perihal'      => $this->input->post('perihal'),
+            'agenda'       => $this->input->post('agenda'),
+            'email'        => $this->input->post('email'),
+            'no'           => $this->input->post('nomor_surat'),
+            'dodate'       => $this->input->post('dodate'),
+            'dari'         => $this->input->post('dari'),
+            'disposisi'    => $this->input->post('disposisi'),
             'title'        => $this->input->post('title'),
             'description'  => $this->input->post('description')
         );
-      $this->db->insert('items', $data);
-      echo 'Added successfully.';  
+      // $this->db->insert('items', $data);
+      echo $data;  
    }
 }
