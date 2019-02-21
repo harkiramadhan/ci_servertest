@@ -46,8 +46,11 @@
   <tbody>
    <?php foreach ($data as $item) { ?>      
       <tr>
-          <td><?php echo $item->title; ?></td>
-          <td><?php echo $item->description; ?></td>
+          <td><?php echo $item->dari; ?></td>
+          <td><?php echo $item->agenda; ?></td>
+          <td><?php echo $item->dodate; ?></td>
+          <td><?php echo $item->disposisi; ?></td>
+          <td><?php echo $item->agenda; ?></td>
       </tr>
    <?php } ?>
   </tbody>

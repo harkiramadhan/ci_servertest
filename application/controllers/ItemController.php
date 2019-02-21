@@ -25,7 +25,7 @@ class ItemController extends CI_Controller {
    */
    public function ajaxRequest()
    {
-       $data['data'] = $this->db->get("items")->result();
+       $data['data'] = $this->db->get("surat_masuk")->result();
        $this->load->view('itemlist', $data);
    }
 
