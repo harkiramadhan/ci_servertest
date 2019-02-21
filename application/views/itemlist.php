@@ -64,23 +64,11 @@
        var description = $("textarea[name='description']").val();
 
         $.ajax({
-            url: "<?php echo base_url(); ?>" + "index.php/ItemController/ajaxRequestPost",
-        //    url: 'ItemController/ajaxRequestPost',
+            url: "http://35.196.230.120/ci_servertest/index.php/ItemController/ajaxRequestPost",
            type: 'POST',
            data: {title: title, description: description},
-           error: function() {
-              alert('Something is wrong');
-           },
-           success: function(data) {
-                $("tbody").append("<tr><td>"+title+"</td><td>"+description+"</td></tr>");
-                alert("Record added successfully");  
-           }
         });
-
-
     });
-
-
 </script>
 
 
