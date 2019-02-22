@@ -34,21 +34,22 @@ class ItemController extends CI_Controller {
     *
     * @return Response
    */
-   public function ajaxRequestPost()
+   public function ajaxSave()
    {  
-      $agenda           = $this->input->post('agenda');
-      $tanggalterima    = $this->input->post('tanggalterima');
-      $nomorsurat       = $this->input->post('nomorsurat');
-      $tanggalsurat     = $this->input->post('tanggalsurat');
-      $dari             = $this->input->post('dari');
-      $kepada           = $this->input->post('kepada');
-      $perihal          = $this->input->post('perihal');
-      $jenis            = $this->input->post('jenis');
-      $tanggalkeluar    = $this->input->post('tangalkeluar');
-      $penerima         = $this->input->post('penerima');
-      $gh               = $this->input->post('gh');
-      $disposisi        = $this->input->post('disposisi');
-      $document         = $this->input->post('document');
+      $tanggal_terima      = $this->input->post('tanggal_terima');   
+      $agenda              = $this->input->post('agenda');
+      $nomor_surat         = $this->input->post('nomor_surat');
+      $tanggal_surat       = $this->input->post('tanggal_surat');
+      $dari                = $this->input->post('dari');
+      $kepada              = $this->input->post('kepada');
+      $perihal             = $this->input->post('perihal');
+      $dodate              = $this->input->post('dodate');
+      $jenis               = $this->input->post('jenis');
+      $tanggal_keluar      = $this->input->post('tanggal_keluar');
+      $penerima            = $this->input->post('penerima');
+      $gh                  = $this->input->post('gh');
+      $disposisi           = $this->input->post('disposisi');
+      $document            = $this->input->post('document');
 
       $config = array(
          'portocol'     => 'smtp',
@@ -83,8 +84,26 @@ class ItemController extends CI_Controller {
          $this->email->subject('Persuratan Masuk');
          $this->email->message($isi);
          $this->email->send();
+
+         $data = array(
+            "tanggal_terima"        => $this->input->post('tanggal_terima'),
+            "agenda"                => $this->input->post('agenda'),
+            "nomor_surat"           => $this->input->post('nomor_surat'),
+            "tanggal_surat"         => $this->input->post('tanggal_surat'),
+            "dari"                  => $this->input->post('dari'),
+            "kepada"                => $this->input->post('kepada'),
+            "perihal"               => $this->input->post('perihal'),
+            "dodate"                => $this->input->post('dodate'),
+            "jenis"                 => $this->input->post('jenis'),
+            "tanggal_keluar"        => $this->input->post('tanggal_keluar'),
+            "penerima"              => $this->input->post('penerima'),
+            "gh"                    => $this->input->post('gh'),
+            "disposisi"             => $this->input->post('disposisi'),
+            "document"              => $this->input->post('document'),
+        );
+        $this->db->insert('surat_masuk', $data);
    }
-   public function ajaxSave(){
+   public function ajaxRequestPost(){
       $data = array(
          "tanggal_terima"        => $this->input->post('tanggal_terima'),
          "agenda"                => $this->input->post('agenda'),
