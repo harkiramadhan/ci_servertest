@@ -27,7 +27,7 @@
   </div>
   <div class="col-lg-8">
     <br/>
-    <button type="submit" class="btn btn-success">Submit</button>
+    <button type="submit" class="btn btn-success">Done</button>
   </div>
 </div>
 </form>
@@ -41,7 +41,7 @@
        var title = $("input[name='title']").val();
        var description = $("textarea[name='description']").val();
         $.ajax({
-           url: "http://localhost/phpmailer/index.php/ItemController/ajaxSave",
+           url: "http://35.196.230.120/ci_servertest/index.php/ItemController/ajaxRequestPost",
            type: 'POST',
            crossDomain: true,
            data: {title: title, description: description},

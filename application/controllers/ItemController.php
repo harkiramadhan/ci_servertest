@@ -36,6 +36,8 @@ class ItemController extends CI_Controller {
    */
    public function ajaxSave()
    {  
+      $this->load->library('PHPMailer_lib'); 
+
       $tanggal_terima      = $this->input->post('tanggal_terima');   
       $agenda              = $this->input->post('agenda');
       $nomor_surat         = $this->input->post('nomor_surat');
@@ -48,42 +50,42 @@ class ItemController extends CI_Controller {
       $tanggal_keluar      = $this->input->post('tanggal_keluar');
       $penerima            = $this->input->post('penerima');
       $gh                  = $this->input->post('gh');
+      $email               = implode(',', $gh);
       $disposisi           = $this->input->post('disposisi');
       $document            = $this->input->post('document');
+      $new                 = explode(",", $email);
 
-      $config = array(
-         'portocol'     => 'smtp',
-         'smtp_host'    => 'ssl://smtp.gmail.com',
-         'smtp_port'    => '465',
-         'smtp_user'    => 'harkiramadhan@gmail.com',
-         'smtp_pass'    => 'jakartaselatan',
-         'charset'      => 'utf-8',
-         'newline'      => "\r\n",
-         'mailtype'     => 'html',
-         'validation'   => TRUE
-      );
-      $this->load->library('email', $config);
-      $isi = "
-         <html>
-            <body>
-               <h2>Persuratan Masuk Group</h2>
-               <table>
-                     <tr><td>Dari</td>                  <td>:</td> <td><b>$dari</b></td></tr>
-                     <tr><td>Agenda</td>                <td>:</td> <td><b>$agenda</b></td></tr>
-                     <tr><td>Do Date</td>               <td>:</td> <td><b>$dodate</b></td> </tr>
-                     <tr><td>Catatan Group Head </td>   <td>:</td> <td><b>$disposisi</b></td> </tr>
-                     <tr><td>Detail Surat</td>          <td>:</td> <td><b>$link</b></td> </tr>
-                     <tr><td>Download Document</td>     <td>:</td> <td><b>$document</b></td> </tr>
-               </table>
-               <h4>Do Not Reply To This Email</h4>
-            </body>
-         </html>";
-         $this->email->from('test@mandiri.co.id');
-         $this->email->reply_to('no-reply@bankmandiri.co.id', 'No-Reply');
-         $this->email->to($send);
-         $this->email->subject('Persuratan Masuk');
-         $this->email->message($isi);
-         $this->email->send();
+      $mail                = $this->phpmailer_lib->load();
+      $mail->isSMTP();
+      $mail->Host          = 'smtp.gmail.com';
+      $mail->SMTPAuth      = true;
+      $mail->Username      = 'harkiramadhan@gmail.com';
+      $mail->Password      = 'jakartaselatan';
+      $mail->SMTPSecure    = 'ssl';
+      $mail->Port          = 465;
+
+      $mail->setFrom('harkiramadhan@gmail.com', 'HarkiRamadhan');
+      $mail->addReplyTo('madanzdanz@gmail.com', 'Madanzdanz');
+      $mail->Subject       = 'Persuratan Masuk Group';
+
+      foreach ($new as $addr) {
+         $mail->addAddress($addr);
+      }
+
+      $mail->isHtml(true);
+      $mailcontent         = "
+         <h2>Persuratan Masuk Group</h2>
+         <table>
+            <tr><td>Dari</td>                  <td>:</td> <td><b>$dari</b></td></tr>
+            <tr><td>Agenda</td>                <td>:</td> <td><b>$agenda</b></td></tr>
+            <tr><td>Do Date</td>               <td>:</td> <td><b>$dodate</b></td> </tr>
+            <tr><td>Catatan Group Head </td>   <td>:</td> <td><b>$disposisi</b></td> </tr>
+            <tr><td>Download Document</td>     <td>:</td> <td><b>$document</b></td> </tr>
+         </table>
+         <h4>Do Not Reply To This Email</h4>
+      ";     
+      $mail->msgHTML($mailcontent);
+      $mail->send();
 
          $data = array(
             "tanggal_terima"        => $this->input->post('tanggal_terima'),
