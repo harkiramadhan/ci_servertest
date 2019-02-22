@@ -32,28 +32,6 @@
 </div>
 </form>
 
-<table class="table table-bordered" style="margin-top:20px">
-
-
-  <thead>
-      <tr>
-          <th>Nama </th>
-          <th>Nama Lengkap</th>
-      </tr>
-  </thead>
-
-
-  <tbody>
-   <?php foreach ($data as $item) { ?>      
-      <tr>
-          <td><?php echo $item->title; ?></td>
-          <td><?php echo $item->description; ?></td>
-      </tr>
-   <?php } ?>
-  </tbody>
-
-
-</table>
 </div>
 
 
@@ -63,7 +41,7 @@
        var title = $("input[name='title']").val();
        var description = $("textarea[name='description']").val();
         $.ajax({
-           url: "http://35.196.230.120/ci_servertest/index.php/ItemController/ajaxRequestPost",
+           url: "http://localhost/phpmailer/index.php/ItemController/ajaxSave",
            type: 'POST',
            crossDomain: true,
            data: {title: title, description: description},
