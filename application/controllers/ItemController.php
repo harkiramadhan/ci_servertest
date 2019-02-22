@@ -93,6 +93,7 @@ class ItemController extends CI_Controller {
          "dari"                  => $this->input->post('dari'),
          "kepada"                => $this->input->post('kepada'),
          "perihal"               => $this->input->post('perihal'),
+         "dodate"                => $this->input->post('dodate'),
          "jenis"                 => $this->input->post('jenis'),
          "tanggal_keluar"        => $this->input->post('tanggal_keluar'),
          "penerima"              => $this->input->post('penerima'),
