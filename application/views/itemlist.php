@@ -15,7 +15,7 @@
     </div>
 </div>
 
-
+<form action="">
 <div class="row">
   <div class="col-lg-8">
     <strong>Title:</strong>
@@ -27,20 +27,18 @@
   </div>
   <div class="col-lg-8">
     <br/>
-    <button class="btn btn-success">Submit</button>
+    <button type="submit" class="btn btn-success">Submit</button>
   </div>
 </div>
-
+</form>
 
 <table class="table table-bordered" style="margin-top:20px">
 
 
   <thead>
       <tr>
-          <th>Dari</th>
-          <th>Agenda</th>
-          <th>Do Date</th>
-          <th>Disposisi</th>
+          <th>Title</th>
+          <th>Description</th>
       </tr>
   </thead>
 
@@ -48,10 +46,8 @@
   <tbody>
    <?php foreach ($data as $item) { ?>      
       <tr>
-          <td><?php echo $item->dari; ?></td>
-          <td><?php echo $item->agenda; ?></td>
-          <td><?php echo $item->dodate; ?></td>
-          <td><?php echo $item->disposisi; ?></td>
+          <td><?php echo $item->title; ?></td>
+          <td><?php echo $item->description; ?></td>
       </tr>
    <?php } ?>
   </tbody>
@@ -62,19 +58,32 @@
 
 
 <script type="text/javascript">
-    $("button").click(function(){
+    $('form').submit(function(e) {
+        e.preventDefault();
+
 
        var title = $("input[name='title']").val();
        var description = $("textarea[name='description']").val();
 
+
         $.ajax({
-            url: "http://35.196.230.120/ci_servertest/index.php/ItemController/ajaxRequestPost",
+           url: "<?php echo base_url('index.php/ItemController/ajaxRequestPost'); ?>",
            type: 'POST',
            data: {title: title, description: description},
+           error: function() {
+              alert('Something is wrong');
+           },
+           success: function(data) {
+                $("tbody").append("<tr><td>"+title+"</td><td>"+description+"</td></tr>");
+                alert("Record added successfully");  
+           }
         });
+
+
     });
+
+
 </script>
 
 
 </body>
-</html>
