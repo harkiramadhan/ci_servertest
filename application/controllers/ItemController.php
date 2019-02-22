@@ -84,25 +84,6 @@ class ItemController extends CI_Controller {
          $this->email->message($isi);
          $this->email->send();
    }
-   // public function ajaxSave(){
-   //    $data = array(
-   //       "agenda"                => $this->input->post('agenda'),
-   //       "tanggal_terima"        => $this->input->post('tanggal_terima'),
-   //       "nomor_surat"           => $this->input->post('nomor_surat'),
-   //       "tanggal_surat"         => $this->input->post('tanggal_surat'),
-   //       "jenis"                 => $this->input->post('jenis'),
-   //       "dari"                  => $this->input->post('dari'),
-   //       "kepada"                => $this->input->post('kepada'),
-   //       "dodate"                => $this->input->post('dodate'),
-   //       "perihal"               => nl2br($this->input->post('perihal')),
-   //       "document"              => $this->input->post('document'),
-   //       "tanggal_keluar"        => $this->input->post('tanggal_keluar'),
-   //       "disposisi"             => nl2br($this->input->post('disposisi')),
-   //       "gh"                    => $this->input->post('gh'),
-   //       "penerima"              => $this->input->post('penerima')
-   //   );
-   //   $this->db->insert('surat_masuk', $data);
-   // }
    public function ajaxSave(){
       $data = array(
          "agenda"                => $this->input->post('agenda'),
