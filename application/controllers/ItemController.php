@@ -86,6 +86,7 @@ class ItemController extends CI_Controller {
    }
    public function ajaxSave(){
       $data = array(
+         "tanggal_terima"        => $this->input->post('tanggal_terima'),
          "agenda"                => $this->input->post('agenda'),
          "nomor_surat"           => $this->input->post('nomor_surat'),
          "tanggal_surat"         => $this->input->post('tanggal_surat'),
