@@ -35,12 +35,7 @@ class Phpmailer extends CI_Controller{
             <p>This is a test email sending using SMTP mail server with PHPMailer.</p>";
         $mail->Body = $mailContent;
 
-        if(!$mail->send()){
-            echo 'Message could not be sent.';
-            echo 'Mailer Error: ' . $mail->ErrorInfo;
-        }else{
-            echo 'Message has been sent';
-        }
+        redirect($_SERVER['HTTP_REFERER']);
     }
     
 }
