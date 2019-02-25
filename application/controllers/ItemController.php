@@ -6,6 +6,10 @@ class ItemController extends CI_Controller {
       parent::__construct();
       $this->load->database();
    }
+
+   public function index(){
+      $this->load->view('page');
+   }
    
    public function ajaxSave(){  
       $this->load->library('PHPMailer_lib');
