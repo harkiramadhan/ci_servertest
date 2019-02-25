@@ -46,10 +46,6 @@ class ItemController extends CI_Controller {
       $mail->setFrom('harkiramadhan@gmail.com', 'HarkiRamadhan');
       $mail->addReplyTo('info@harkiramadhan.com', 'HarkiRamadhan');
         
-      // $mail->addAddress('madanzdanz@gmail.com');
-      // $mail->addCC('cc@example.com');
-      // $mail->addBCC('bcc@example.com');
-        
       $mail->Subject = 'Persuratan Masuk Group - '.$perihal;
         
       $mail->isHTML(true);
@@ -109,10 +105,6 @@ class ItemController extends CI_Controller {
       $mail->setFrom('harkiramadhan@gmail.com', 'HarkiRamadhan');
       $mail->addReplyTo('info@harkiramadhan.com', 'HarkiRamadhan');
         
-      // $mail->addAddress('madanzdanz@gmail.com');
-      // $mail->addCC('cc@example.com');
-      // $mail->addBCC('bcc@example.com');
-        
       $mail->Subject = 'Persuratan Masuk Dept - '.$perihal;
         
       $mail->isHTML(true);
@@ -135,25 +127,5 @@ class ItemController extends CI_Controller {
       }else{
             echo 'Message has been sent';
       } 
-   }
-
-   public function ajaxRequestPost(){
-      $data = array(
-         "tanggal_terima"        => $this->input->post('tanggal_terima'),
-         "agenda"                => $this->input->post('agenda'),
-         "nomor_surat"           => $this->input->post('nomor_surat'),
-         "tanggal_surat"         => $this->input->post('tanggal_surat'),
-         "dari"                  => $this->input->post('dari'),
-         "kepada"                => $this->input->post('kepada'),
-         "perihal"               => $this->input->post('perihal'),
-         "dodate"                => $this->input->post('dodate'),
-         "jenis"                 => $this->input->post('jenis'),
-         "tanggal_keluar"        => $this->input->post('tanggal_keluar'),
-         "penerima"              => $this->input->post('penerima'),
-         "gh"                    => $this->input->post('gh'),
-         "disposisi"             => $this->input->post('disposisi'),
-         "document"              => $this->input->post('document'),
-     );
-     $this->db->insert('surat_masuk', $data);
    }
 }
