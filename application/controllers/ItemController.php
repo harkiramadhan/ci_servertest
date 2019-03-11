@@ -38,13 +38,13 @@ class ItemController extends CI_Controller {
       $mail->isSMTP();
       $mail->Host       = 'smtp.gmail.com';
       $mail->SMTPAuth   = true;
-      $mail->Username   = 'harkiramadhan@gmail.com';
-      $mail->Password   = 'jakartaselatan';
+      $mail->Username   = 'rpfnorep@gmail.com';
+      $mail->Password   = 'Adminrpf001';
       $mail->SMTPSecure = 'ssl';
       $mail->Port       = 465;
         
-      $mail->setFrom('harkiramadhan@gmail.com', 'HarkiRamadhan');
-      $mail->addReplyTo('info@harkiramadhan.com', 'HarkiRamadhan');
+      $mail->setFrom('rpfnorep@gmail.com', 'RPF No Reply');
+      $mail->addReplyTo('rpfnorep@gmail.com', 'RPF No Reply');
         
       $mail->Subject = 'Persuratan Masuk Group - '.$perihal;
         
@@ -56,7 +56,7 @@ class ItemController extends CI_Controller {
             <tr><td>Agenda</td>                <td>:</td> <td><b>$agenda</b></td></tr>
             <tr><td>Do Date</td>               <td>:</td> <td><b>$dodate</b></td> </tr>
             <tr><td>Catatan Group Head </td>   <td>:</td> <td><b>$disposisi</b></td> </tr>   
-            <tr><td>Download Document</td>     <td>:</td> <td><b>$document</b></td> </tr>
+            <tr><td>Download Document</td>     <td>:</td> <td><b><a href=".$document.">Klik Disini</a></b></td> </tr>
          </table>
          <h4>Do Not Reply To This Email</h4>
       ";
@@ -97,13 +97,13 @@ class ItemController extends CI_Controller {
       $mail->isSMTP();
       $mail->Host       = 'smtp.gmail.com';
       $mail->SMTPAuth   = true;
-      $mail->Username   = 'harkiramadhan@gmail.com';
-      $mail->Password   = 'jakartaselatan';
+      $mail->Username   = 'rpfnorep@gmail.com';
+      $mail->Password   = 'Adminrpf001';
       $mail->SMTPSecure = 'ssl';
       $mail->Port       = 465;
         
-      $mail->setFrom('harkiramadhan@gmail.com', 'HarkiRamadhan');
-      $mail->addReplyTo('info@harkiramadhan.com', 'HarkiRamadhan');
+      $mail->setFrom('rpfnorep@gmail.com', 'RPF No Reply');
+      $mail->addReplyTo('info@RPF No Reply.com', 'RPF No Reply');
         
       $mail->Subject = 'Persuratan Masuk Dept - '.$perihal;
         
@@ -115,7 +115,7 @@ class ItemController extends CI_Controller {
             <tr><td>Agenda</td>                 <td>:</td> <td><b>$agenda</b></td></tr>
             <tr><td>Do Date</td>                <td>:</td> <td><b>$dodate</b></td> </tr>
             <tr><td>Catatan Dept Head </td>     <td>:</td> <td><b>$disposisi</b></td> </tr>   
-            <tr><td>Download Document</td>      <td>:</td> <td><b>$document</b></td> </tr>
+            <tr><td>Download Document</td>      <td>:</td> <td><b><a href=".$document.">Klik Disini</a></b></td> </tr>
          </table>
          <h4>Do Not Reply To This Email</h4>
       ";

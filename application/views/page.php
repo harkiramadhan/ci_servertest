@@ -7,9 +7,9 @@
       <link rel="stylesheet" href="<?= base_url('assets/css/style.css') ?>">
 </head>
 
-<body style="background-color: white; text-align: center">
+<body style="background-color: #2E3436; text-align: center">
 
-<h1 style="color: #D15C61">ERROR !</h1>
+<h1 style="color: #2E3436">ERROR !</h1>
 <section class="error-container">
   <span><span>4</span></span>
   <span>0</span>
